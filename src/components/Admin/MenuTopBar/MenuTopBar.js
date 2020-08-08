@@ -5,7 +5,7 @@ import {
   MenuFoldOutlined,
 } from '@ant-design/icons';
 import { Button } from 'antd';
-import AppLogo from '../../../assets/png/app-logo.png';
+import AppLogo from '../../../assets/img/png/app-logo.png';
 
 import './MenuTopBar.scss';
 

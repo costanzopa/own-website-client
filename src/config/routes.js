@@ -4,14 +4,14 @@ import LayoutBasic from '../layouts/LayoutBasic.js';
 
 // Admin Pages
 import AdminHome from '../pages/Admin';
-import AdminSignIn from '../pages/Admin/SignIn.js';
+import AdminSignIn from '../pages/Admin/SignIn';
 
 // Pages
 import Home from '../pages/Home.js';
 import Contact from '../pages/Contact.js';
 
 // Other
-import Error404 from '../pages/Error404';
+import Error404 from '../pages/Error404.js';
 
 const routes = [
   {
