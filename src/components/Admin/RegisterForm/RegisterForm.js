@@ -5,6 +5,7 @@ import {
   emailValidation,
   minLengthValidation,
 } from '../../../utils/formValidation.js';
+import { signUpApi } from '../../../api/user.js';
 
 import './RegisterForm.scss';
 
@@ -48,10 +49,9 @@ export default function RegisterForm() {
     if (type === 'checkbox') {
       setFormValid({ ...formValid, [name]: e.target.checked });
     }
-    console.log(e.target);
   };
 
-  const register = (e) => {
+  const register = async (e) => {
     e.preventDefault();
 
     const emailVal = inputs.email;
@@ -69,7 +69,17 @@ export default function RegisterForm() {
           message: 'Las contraseñas tienen que ser iguales.',
         });
       } else {
-        resetForm();
+        const result = await signUpApi(inputs);
+        if (!result.ok) {
+          notification['error']({
+            message: result.message,
+          });
+        } else {
+          notification['success']({
+            message: result.message,
+          });
+          resetForm();
+        }
       }
     }
   };

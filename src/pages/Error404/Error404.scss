@@ -1,8 +1,6 @@
 @import '../../scss/index.scss';
 
 .ErrorImageOverlay {
-  height: 60vh;
-  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -10,19 +8,23 @@
 
   .ErrorImageContainer {
     display: inline-block;
+    width: 1000px;
+    height: 500px;
     background-image: url('../../assets/img/png/404-removebg-preview.png');
     background-size: cover;
     background-position: center;
-    width: 60vw;
-    height: 55vh;
+    @media (max-width: $media-breakpoint-up-lg) {
+      width: 300px;
+      height: 150px;
+    }
   }
 
   .ErrorImageText {
-    font-size: 28px;
+    font-size: 0em + 28px / $defaultFontSize;
     color: #486577;
   }
   .ErrorImageTextLink {
-    font-size: 20px;
+    font-size: 0em + 24px / $defaultFontSize;
     color: #486577;
   }
 }

@@ -12,7 +12,7 @@ import {
 import './MenuSider.scss';
 
 const MenuSider = (props) => {
-  const { menuCollapsed, location } = props;
+  const { menuCollapsed } = props;
   const { Sider } = Layout;
 
   return (
