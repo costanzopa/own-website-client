@@ -11,7 +11,7 @@ import Home from '../pages/Home.js';
 import Contact from '../pages/Contact.js';
 
 // Other
-import Error404 from '../pages/Error404.js';
+import Error404 from '../pages/Error404';
 
 const routes = [
   {

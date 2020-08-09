@@ -1,0 +1,28 @@
+@import '../../scss/index.scss';
+
+.ErrorImageOverlay {
+  height: 60vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .ErrorImageContainer {
+    display: inline-block;
+    background-image: url('../../assets/img/png/404-removebg-preview.png');
+    background-size: cover;
+    background-position: center;
+    width: 60vw;
+    height: 55vh;
+  }
+
+  .ErrorImageText {
+    font-size: 28px;
+    color: #486577;
+  }
+  .ErrorImageTextLink {
+    font-size: 20px;
+    color: #486577;
+  }
+}

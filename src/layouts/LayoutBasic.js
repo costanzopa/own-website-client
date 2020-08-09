@@ -11,13 +11,12 @@ const LayoutBasic = (props) => {
 
   return (
     <Layout>
-      <h2>Menu Sider Basic</h2>
-      <Layout>
-        <Header>Header</Header>
-        <Content>
+      <Layout className="layout-basic">
+        <Header className="header">Header</Header>
+        <Content className="content">
           <LayoutRoutes routes={routes} />
         </Content>
-        <Footer>Pablo Costanzo</Footer>
+        <Footer className="footer">Pablo Costanzo</Footer>
       </Layout>
     </Layout>
   );
