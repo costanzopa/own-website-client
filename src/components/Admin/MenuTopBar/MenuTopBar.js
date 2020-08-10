@@ -1,16 +1,22 @@
-import React from 'react';
+import React from "react";
 import {
   MenuUnfoldOutlined,
   PoweroffOutlined,
   MenuFoldOutlined,
-} from '@ant-design/icons';
-import { Button } from 'antd';
-import AppLogo from '../../../assets/img/png/app-logo.png';
+} from "@ant-design/icons";
+import { Button } from "antd";
+import AppLogo from "../../../assets/img/png/app-logo.png";
+import { logout } from "../../../api/auth";
 
-import './MenuTopBar.scss';
+import "./MenuTopBar.scss";
 
 export default function MenuTopBar(props) {
   const { menuCollapsed, setMenuCollapsed } = props;
+
+  const logoutUser = () => {
+    logout();
+    window.location.reload();
+  };
 
   return (
     <div className="menu-top-bar">
@@ -25,7 +31,7 @@ export default function MenuTopBar(props) {
       <div className="menu-top-bar__right">
         <Button
           type="link"
-          onClick={() => console.log('Hola')}
+          onClick={logoutUser}
           icon={<PoweroffOutlined />}
         />
       </div>
