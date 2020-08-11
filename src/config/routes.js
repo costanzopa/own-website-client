@@ -1,32 +1,38 @@
 // Layout
-import LayoutAdmin from '../layouts/LayoutAdmin.js';
-import LayoutBasic from '../layouts/LayoutBasic.js';
+import LayoutAdmin from "../layouts/LayoutAdmin.js";
+import LayoutBasic from "../layouts/LayoutBasic.js";
 
 // Admin Pages
-import AdminHome from '../pages/Admin';
-import AdminSignIn from '../pages/Admin/SignIn';
+import AdminHome from "../pages/Admin";
+import AdminSignIn from "../pages/Admin/SignIn";
+import AdminUsers from "../pages/Admin/Users";
 
 // Pages
-import Home from '../pages/Home.js';
-import Contact from '../pages/Contact.js';
+import Home from "../pages/Home.js";
+import Contact from "../pages/Contact.js";
 
 // Other
-import Error404 from '../pages/Error404';
+import Error404 from "../pages/Error404";
 
 const routes = [
   {
-    path: '/admin',
+    path: "/admin",
     component: LayoutAdmin,
     exact: false,
     routes: [
       {
-        path: '/admin',
+        path: "/admin",
         component: AdminHome,
         exact: true,
       },
       {
-        path: '/admin/login',
+        path: "/admin/login",
         component: AdminSignIn,
+        exact: true,
+      },
+      {
+        path: "/admin/users",
+        component: AdminUsers,
         exact: true,
       },
       {
@@ -35,17 +41,17 @@ const routes = [
     ],
   },
   {
-    path: '/',
+    path: "/",
     component: LayoutBasic,
     exact: false,
     routes: [
       {
-        path: '/',
+        path: "/",
         component: Home,
         exact: true,
       },
       {
-        path: '/contact',
+        path: "/contact",
         component: Contact,
         exact: true,
       },

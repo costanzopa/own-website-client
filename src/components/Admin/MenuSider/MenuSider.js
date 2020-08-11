@@ -1,18 +1,18 @@
-import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
-import { Layout, Menu } from 'antd';
+import React from "react";
+import { Link, withRouter } from "react-router-dom";
+import { Layout, Menu } from "antd";
 import {
   UserOutlined,
   MenuOutlined,
   MessageOutlined,
   BookOutlined,
   HomeOutlined,
-} from '@ant-design/icons';
+} from "@ant-design/icons";
 
-import './MenuSider.scss';
+import "./MenuSider.scss";
 
 const MenuSider = (props) => {
-  const { menuCollapsed } = props;
+  const { menuCollapsed, location } = props;
   const { Sider } = Layout;
 
   return (
@@ -20,8 +20,7 @@ const MenuSider = (props) => {
       <Menu
         theme="dark"
         mode="inline"
-        // defaultSelectedKeys={[location.pathname]}
-        defaultSelectedKeys={['/admin/users']}
+        defaultSelectedKeys={[location.pathname]}
       >
         <Menu.Item key="/admin">
           <Link to="/admin">
