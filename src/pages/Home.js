@@ -1,7 +1,18 @@
-import React from 'react';
+import React from "react";
+import MainBanner from "../components/Web/MainBanner";
+import HomeCourses from "../components/Web/HomeCourses";
+import HowMyCoursesWork from "../components/Web/HowMyCoursesWork";
+import ReviewsCourses from "../components/Web/ReviewsCourses";
 
 const Home = () => {
-  return <h1>We are in Home page</h1>;
+  return (
+    <div>
+      <MainBanner />
+      <HomeCourses />
+      <HowMyCoursesWork />
+      <ReviewsCourses />
+    </div>
+  );
 };
 
 export default Home;

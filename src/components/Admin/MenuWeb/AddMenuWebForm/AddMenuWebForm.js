@@ -14,7 +14,10 @@ export default function AddMenuWebForm(props) {
     event.preventDefault();
     let finalData = {
       title: menuWebData.title,
-      url: (menuWebData.http ? menuWebData.http : "http://") + menuWebData.url,
+      url:
+        (menuWebData.http
+          ? (menuWebData.http === "local" ? "" : menuWebData.http)
+          : "http://") + menuWebData.url,
     };
 
     if (!finalData.title || !finalData.url || !menuWebData.url) {
@@ -67,6 +70,7 @@ function AddForm(props) {
     >
       <Option value="http://">http://</Option>
       <Option value="https://">https://</Option>
+      <Option value="local">local</Option>
     </Select>
   );
 

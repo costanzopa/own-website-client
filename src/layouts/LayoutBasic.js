@@ -16,11 +16,11 @@ const LayoutBasic = (props) => {
         <Col lg={4} />
         <Col lg={16}>
           <MenuTop />
-          <LayoutRoutes routes={routes} />
-          <Footer />
         </Col>
         <Col lg={4} />
       </Row>
+      <LayoutRoutes routes={routes} />
+      <Footer />
     </>
   );
 };
