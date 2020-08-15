@@ -1,24 +1,27 @@
-import React from 'react';
+import React from "react";
+import { Row, Col } from "antd";
+import MenuTop from "../components/Web/MenuTop";
+import Footer from "../components/Web/Footer";
 
-import { Layout } from 'antd';
-import LayoutRoutes from './LayoutRoutes.js';
+import LayoutRoutes from "./LayoutRoutes.js";
 
-import './LayoutBasic.scss';
+import "./LayoutBasic.scss";
 
 const LayoutBasic = (props) => {
   const { routes } = props;
-  const { Header, Content, Footer } = Layout;
 
   return (
-    <Layout>
-      <Layout className="layout-basic">
-        <Header className="header">Header</Header>
-        <Content className="content">
+    <>
+      <Row>
+        <Col lg={4} />
+        <Col lg={16}>
+          <MenuTop />
           <LayoutRoutes routes={routes} />
-        </Content>
-        <Footer className="footer">Pablo Costanzo</Footer>
-      </Layout>
-    </Layout>
+          <Footer />
+        </Col>
+        <Col lg={4} />
+      </Row>
+    </>
   );
 };
 
