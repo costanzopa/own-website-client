@@ -10,7 +10,7 @@ export default function SocialLinks() {
   return (
     <div className="social-links">
       <a
-        href="https://www.youtube.com/c/AgustinNavarroGaldon?sub_confirmation=1"
+        href="https://www.youtube.com/channel/UC6zOmaPjFrLu0jC3GTJe5aQ/featured?view_as=subscriber"
         className="youtube"
         target="_blank"
         rel="noopener noreferrer"
@@ -18,7 +18,7 @@ export default function SocialLinks() {
         <YouTubeIcon />
       </a>
       <a
-        href="https://twitter.com/xagustin93"
+        href="https://twitter.com/pacostanzo"
         className="twitter"
         target="_blank"
         rel="noopener noreferrer"
@@ -26,7 +26,7 @@ export default function SocialLinks() {
         <TwitterIcon />
       </a>
       <a
-        href="https://www.facebook.com/AgustinNavarroGaldon"
+        href="https://www.facebook.com/pabloagustin.costanzo"
         className="facebook"
         target="_blank"
         rel="noopener noreferrer"
@@ -34,7 +34,7 @@ export default function SocialLinks() {
         <FacebookIcon />
       </a>
       <a
-        href="https://es.linkedin.com/in/agustin93"
+        href="https://www.linkedin.com/in/pablo-costanzo-288313169/"
         className="linkedin"
         target="_blank"
         rel="noopener noreferrer"
