@@ -9,6 +9,8 @@ import {
   deleteCourseApi,
   updateCourseApi,
 } from "../../../../api/course";
+import Modal from "../../../Modal";
+import AddEditCourseForm from "../AddEditCourseForm";
 
 import "./CoursesList.scss";
 const { confirm } = ModalAntd;
@@ -28,7 +30,7 @@ export default function CoursesList(props) {
           <Course
             course={course}
             deleteCourse={deleteCourse}
-            editCourseModal={() => console.log("dss")}
+            editCourseModal={editCourseModal}
           />
         ),
       });
@@ -45,6 +47,29 @@ export default function CoursesList(props) {
       const order = item.rank;
       updateCourseApi(accessToken, _id, { order });
     });
+  };
+
+  const addCourseModal = () => {
+    setIsVisibleModal(true);
+    setModalTitle("Creando nuevo curso");
+    setModalContent(
+      <AddEditCourseForm
+        setIsVisibleModal={setIsVisibleModal}
+        setReloadCourses={setReloadCourses}
+      />,
+    );
+  };
+
+  const editCourseModal = (course) => {
+    setIsVisibleModal(true);
+    setModalTitle("Actualizando curso");
+    setModalContent(
+      <AddEditCourseForm
+        setIsVisibleModal={setIsVisibleModal}
+        setReloadCourses={setReloadCourses}
+        course={course}
+      />,
+    );
   };
 
   const deleteCourse = (course) => {
@@ -79,15 +104,11 @@ export default function CoursesList(props) {
 
   return (<div className="courses-list">
     <div className="courses-list__header">
-      <Button
-        type="primary"
-        onClick={() => {
-          console.log();
-        }}
-      >
+      <Button type="primary" onClick={addCourseModal}>
         Nuevo curso
       </Button>
     </div>
+
     <div className="courses-list__items">
       {listCourses.length === 0 && (
         <h2 style={{ textAlign: "center", margin: 0 }}>
@@ -96,6 +117,14 @@ export default function CoursesList(props) {
       )}
       <DragSortableList items={listCourses} onSort={onSort} type="vertical" />
     </div>
+
+    <Modal
+      title={modalTitle}
+      isVisible={isVisibleModal}
+      setIsVisible={setIsVisibleModal}
+    >
+      {modalContent}
+    </Modal>
   </div>);
 }
 
