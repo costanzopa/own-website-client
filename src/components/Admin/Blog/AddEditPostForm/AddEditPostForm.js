@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { Row, Col, Form, Input, Button, DatePicker, notification } from 'antd';
-import { FontSizeOutlined, LinkOutlined } from '@ant-design/icons';
-import moment from 'moment';
-import { Editor } from '@tinymce/tinymce-react';
-import { getAccessTokenApi } from '../../../../api/auth';
-import { addPostApi, updatePostApi } from '../../../../api/post';
+import React, { useState, useEffect } from "react";
+import { Row, Col, Form, Input, Button, DatePicker, notification } from "antd";
+import { FontSizeOutlined, LinkOutlined } from "@ant-design/icons";
+import moment from "moment";
+import { Editor } from "@tinymce/tinymce-react";
+import { getAccessTokenApi } from "../../../../api/auth";
+import { addPostApi, updatePostApi } from "../../../../api/post";
 
-import './AddEditPostForm.scss';
+import "./AddEditPostForm.scss";
 
 export default function AddEditPostForm(props) {
   const { setIsVisibleModal, setReloadPosts, post } = props;
@@ -25,8 +25,8 @@ export default function AddEditPostForm(props) {
     const { title, url, description, date } = postData;
 
     if (!title || !url || !description || !date) {
-      notification['error']({
-        message: 'Todos los campos son obligatorios.',
+      notification["error"]({
+        message: "Todos los campos son obligatorios.",
       });
     } else {
       if (!post) {
@@ -42,7 +42,7 @@ export default function AddEditPostForm(props) {
 
     addPostApi(token, postData)
       .then((response) => {
-        const typeNotification = response.code === 200 ? 'success' : 'warning';
+        const typeNotification = response.code === 200 ? "success" : "warning";
         notification[typeNotification]({
           message: response.message,
         });
@@ -51,8 +51,8 @@ export default function AddEditPostForm(props) {
         setPostData({});
       })
       .catch(() => {
-        notification['error']({
-          message: 'Error del servidor.',
+        notification["error"]({
+          message: "Error del servidor.",
         });
       });
   };
@@ -61,7 +61,7 @@ export default function AddEditPostForm(props) {
     const token = getAccessTokenApi();
     updatePostApi(token, post._id, postData)
       .then((response) => {
-        const typeNotification = response.code === 200 ? 'success' : 'warning';
+        const typeNotification = response.code === 200 ? "success" : "warning";
         notification[typeNotification]({
           message: response.message,
         });
@@ -70,8 +70,8 @@ export default function AddEditPostForm(props) {
         setPostData({});
       })
       .catch(() => {
-        notification['error']({
-          message: 'Error del servidor.',
+        notification["error"]({
+          message: "Error del servidor.",
         });
       });
   };
@@ -100,8 +100,7 @@ function AddEditForm(props) {
             placeholder="Titulo"
             value={postData.title}
             onChange={(e) =>
-              setPostData({ ...postData, title: e.target.value })
-            }
+              setPostData({ ...postData, title: e.target.value })}
           />
         </Col>
         <Col span={8}>
@@ -113,44 +112,39 @@ function AddEditForm(props) {
               setPostData({
                 ...postData,
                 url: transformTextToUrl(e.target.value),
-              })
-            }
+              })}
           />
         </Col>
         <Col span={8}>
           <DatePicker
-            style={{ width: '100%' }}
+            style={{ width: "100%" }}
             format="DD/MM/YYYY HH:mm:ss"
             placeholder="Fecha de publicación"
             value={postData.date && moment(postData.date)}
             onChange={(e, value) =>
               setPostData({
                 ...postData,
-                date: moment(value, 'DD/MM/YYYY HH:mm:ss').toISOString(),
-              })
-            }
+                date: moment(value, "DD/MM/YYYY HH:mm:ss").toISOString(),
+              })}
           />
         </Col>
       </Row>
 
       <Editor
-        value={postData.description ? postData.description : ''}
+        value={postData.description ? postData.description : ""}
         init={{
           height: 400,
           menubar: true,
           plugins: [
-            'advlist autolink lists link image charmap print preview anchor',
-            'searchreplace visualblocks code fullscreen',
-            'insertdatetime media table paste code help wordcount',
+            "advlist autolink lists link image charmap print preview anchor",
+            "searchreplace visualblocks code fullscreen",
+            "insertdatetime media table paste code help wordcount",
           ],
           toolbar:
-            'undo redo | formatselect | bold italic backcolor | \
-             alignleft aligncenter alignright alignjustify | \
-             bullist numlist outdent indent | removeformat | help',
+            "undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify |  bullist numlist outdent indent | removeformat | help",
         }}
         onBlur={(e) =>
-          setPostData({ ...postData, description: e.target.getContent() })
-        }
+          setPostData({ ...postData, description: e.target.getContent() })}
       />
 
       <Button
@@ -159,13 +153,13 @@ function AddEditForm(props) {
         className="btn-submit"
         onClick={processPost}
       >
-        {post ? 'Actualizar post' : 'Crear post'}
+        {post ? "Actualizar post" : "Crear post"}
       </Button>
     </Form>
   );
 }
 
 function transformTextToUrl(text) {
-  const url = text.replace(' ', '-');
+  const url = text.replace(" ", "-");
   return url.toLowerCase();
 }
