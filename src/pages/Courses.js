@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Helmet } from "react-helmet";
 import { Row, Col, Spin, notification } from "antd";
 import { getCoursesApi } from "../api/course";
 import PresentationCourses from "../components/Web/Courses/PresentationCourses";
@@ -24,22 +25,34 @@ const Courses = (props) => {
         });
       });
   }, []);
-  return (<Row>
-    <Col md={4} />
-    <Col md={16}>
-      <PresentationCourses />
-      {!courses
-        ? (
-          <Spin
-            tip="Cargando cursos"
-            style={{ textAlign: "center", width: "100%", padding: "20px" }}
-          />
-        )
-        : (
-          <CoursesList courses={courses} />
-        )}
-    </Col>
-    <Col md={4} />
-  </Row>);
+  return (
+    <div>
+      <Helmet>
+        <title>Cursos | Pablo Agustin Costanzo</title>
+        <meta
+          name="description"
+          content="Cursos | Web sobre programación de Pablo Agustin Costanzo"
+          data-react-helmet="true"
+        />
+      </Helmet>
+      <Row>
+        <Col md={4} />
+        <Col md={16}>
+          <PresentationCourses />
+          {!courses
+            ? (
+              <Spin
+                tip="Cargando cursos"
+                style={{ textAlign: "center", width: "100%", padding: "20px" }}
+              />
+            )
+            : (
+              <CoursesList courses={courses} />
+            )}
+        </Col>
+        <Col md={4} />
+      </Row>
+    </div>
+  );
 };
 export default Courses;
